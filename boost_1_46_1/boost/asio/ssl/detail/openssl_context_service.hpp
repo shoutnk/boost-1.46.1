@@ -66,6 +66,7 @@ public:
   {
     switch (m)
     {
+#ifndef OPENSSL_NO_SSL2
     case context_base::sslv2:
       impl = ::SSL_CTX_new(::SSLv2_method());
       break;
@@ -75,6 +76,7 @@ public:
     case context_base::sslv2_server:
       impl = ::SSL_CTX_new(::SSLv2_server_method());
       break;
+#endif
     case context_base::sslv3:
       impl = ::SSL_CTX_new(::SSLv3_method());
       break;
